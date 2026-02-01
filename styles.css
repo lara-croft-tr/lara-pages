@@ -480,6 +480,37 @@ section {
     color: var(--gray);
 }
 
+.footer-partner {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.footer-photo-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.footer-photo-link:hover {
+    color: var(--white);
+    text-decoration: underline;
+}
+
+.team-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+.team-link:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-menu {
