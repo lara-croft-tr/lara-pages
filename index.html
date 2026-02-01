@@ -3,25 +3,283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World - Lara's Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-        h1 {
-            font-size: 3rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-    </style>
+    <title>Green Dragon Consulting Ltd - Oracle Cloud Experts</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Hello World! 🦊</h1>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="logo">🐉</span>
+                <span class="brand-name">Green Dragon Consulting</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact" class="btn-contact">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Oracle Cloud Excellence</h1>
+                <p class="hero-subtitle">Transform your business with enterprise-grade Oracle Cloud solutions</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                    <a href="#services" class="btn btn-secondary">Our Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Comprehensive Oracle Cloud solutions tailored to your business needs</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">☁️</div>
+                    <h3>Cloud Migration</h3>
+                    <p>Seamlessly migrate your infrastructure to Oracle Cloud with zero downtime and maximum efficiency.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Integration Services</h3>
+                    <p>Connect your enterprise systems with Oracle Integration Cloud for streamlined operations.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Custom Development</h3>
+                    <p>Build bespoke Oracle Cloud applications tailored to your unique business requirements.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Analytics & Reporting</h3>
+                    <p>Leverage Oracle Analytics Cloud to gain actionable insights from your data.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🛡️</div>
+                    <h3>Security & Compliance</h3>
+                    <p>Ensure your Oracle Cloud infrastructure meets industry standards and best practices.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>Managed Services</h3>
+                    <p>24/7 monitoring and support for your Oracle Cloud environment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Recent Projects</h2>
+            <p class="section-subtitle">Delivering excellence across industries</p>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Global Finance Corp</h3>
+                        <span class="project-tag">Finance</span>
+                    </div>
+                    <p>Migrated legacy ERP system to Oracle Cloud ERP with full integration across 15 countries. Achieved 40% reduction in operational costs and 99.9% uptime.</p>
+                    <ul class="project-tech">
+                        <li>Oracle Cloud ERP</li>
+                        <li>Integration Cloud</li>
+                        <li>Analytics Cloud</li>
+                    </ul>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>MedTech Solutions</h3>
+                        <span class="project-tag">Healthcare</span>
+                    </div>
+                    <p>Implemented Oracle Integration Cloud to connect disparate healthcare systems, improving patient data flow and reducing processing time by 60%.</p>
+                    <ul class="project-tech">
+                        <li>OIC</li>
+                        <li>REST APIs</li>
+                        <li>FHIR Integration</li>
+                    </ul>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>RetailPro International</h3>
+                        <span class="project-tag">Retail</span>
+                    </div>
+                    <p>Built custom Oracle APEX applications for inventory management across 200+ retail locations with real-time analytics and reporting.</p>
+                    <ul class="project-tech">
+                        <li>Oracle APEX</li>
+                        <li>Autonomous Database</li>
+                        <li>Mobile Cloud</li>
+                    </ul>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Manufacturing Excellence Inc</h3>
+                        <span class="project-tag">Manufacturing</span>
+                    </div>
+                    <p>Deployed IoT-enabled Oracle Cloud solution for predictive maintenance, reducing equipment downtime by 35% and saving millions annually.</p>
+                    <ul class="project-tech">
+                        <li>IoT Cloud</li>
+                        <li>Machine Learning</li>
+                        <li>Analytics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="container">
+            <h2 class="section-title">Our Team</h2>
+            <p class="section-subtitle">Oracle-certified experts with decades of combined experience</p>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">👨‍💼</div>
+                    <h3>James Richardson</h3>
+                    <p class="team-role">Chief Technology Officer</p>
+                    <p class="team-bio">15+ years in Oracle Cloud architecture with expertise in enterprise-scale migrations. Oracle ACE Director and frequent speaker at CloudWorld.</p>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">👩‍💻</div>
+                    <h3>Sarah Chen</h3>
+                    <p class="team-role">Lead Integration Architect</p>
+                    <p class="team-bio">Specialist in Oracle Integration Cloud with 200+ successful integration projects. Certified in OIC, VBCS, and API Platform Cloud.</p>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">👨‍🔬</div>
+                    <h3>Michael O'Brien</h3>
+                    <p class="team-role">Cloud Security Director</p>
+                    <p class="team-bio">Former Oracle security consultant with deep expertise in compliance, identity management, and cloud security best practices.</p>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">👩‍🚀</div>
+                    <h3>Emily Rodriguez</h3>
+                    <p class="team-role">Data & Analytics Lead</p>
+                    <p class="team-bio">Oracle Analytics expert helping clients unlock business insights from their data. Specialized in OAC, OBIEE, and machine learning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Let's discuss how we can transform your business with Oracle Cloud</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@greendragonconsulting.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🌍</div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Austin, Texas, USA</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <div>
+                            <h4>Business Hours</h4>
+                            <p>Mon-Fri: 9:00 AM - 6:00 PM CST</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="text" placeholder="Company">
+                        <textarea rows="5" placeholder="Tell us about your project" required></textarea>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo">🐉</span>
+                    <span class="brand-name">Green Dragon Consulting Ltd</span>
+                    <p>Oracle Cloud Excellence Since 2015</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#services">Cloud Migration</a></li>
+                            <li><a href="#services">Integration</a></li>
+                            <li><a href="#services">Development</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#team">About Us</a></li>
+                            <li><a href="#projects">Case Studies</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Certifications</h4>
+                        <ul>
+                            <li>Oracle Cloud Infrastructure</li>
+                            <li>Oracle Integration Cloud</li>
+                            <li>Oracle Analytics Cloud</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Green Dragon Consulting Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
