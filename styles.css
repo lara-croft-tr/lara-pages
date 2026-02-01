@@ -600,6 +600,28 @@ section {
     background: #e0e0e0;
 }
 
+.slot.preferred {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-light) 100%);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(45, 106, 79, 0.15);
+}
+
+.slot.preferred:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(45, 106, 79, 0.25);
+}
+
+.slot.lunch {
+    background: repeating-linear-gradient(
+        45deg,
+        #f5f5f5,
+        #f5f5f5 10px,
+        #e8e8e8 10px,
+        #e8e8e8 20px
+    );
+    cursor: not-allowed;
+}
+
 .availability-legend {
     display: flex;
     justify-content: center;
