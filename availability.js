@@ -90,6 +90,14 @@ function parseRRule(rruleStr) {
     return rule;
 }
 
+// Check if date is in excluded dates list
+function isExcluded(date, exdates) {
+    if (!exdates || exdates.length === 0) return false;
+    const dateMs = date.getTime();
+    // Check within 1 hour tolerance for timezone differences
+    return exdates.some(ex => Math.abs(ex - dateMs) < 3600000);
+}
+
 // Expand recurring event into individual occurrences
 function expandRecurringEvent(event, startRange, endRange) {
     const occurrences = [];
@@ -102,18 +110,19 @@ function expandRecurringEvent(event, startRange, endRange) {
     
     const duration = eventEnd.getTime() - eventStart.getTime();
     const until = rule.until || endRange;
+    const exdates = event.exdates || [];
     
     let current = new Date(eventStart);
     let count = 0;
     const maxIterations = 500; // Safety limit
     
     while (current <= until && current <= endRange && count < maxIterations) {
-        // Check if this occurrence falls within our range
+        // Check if this occurrence falls within our range and is not excluded
         if (current >= startRange || (current.getTime() + duration) >= startRange.getTime()) {
             // For WEEKLY with BYDAY, check if current day matches
             if (rule.freq === 'WEEKLY' && rule.byDay) {
                 if (rule.byDay.includes(current.getDay())) {
-                    if (current >= startRange) {
+                    if (current >= startRange && !isExcluded(current, exdates)) {
                         occurrences.push({
                             start: new Date(current),
                             end: new Date(current.getTime() + duration),
@@ -122,7 +131,7 @@ function expandRecurringEvent(event, startRange, endRange) {
                     }
                 }
             } else if (rule.freq === 'DAILY' || (rule.freq === 'WEEKLY' && !rule.byDay)) {
-                if (current >= startRange) {
+                if (current >= startRange && !isExcluded(current, exdates)) {
                     occurrences.push({
                         start: new Date(current),
                         end: new Date(current.getTime() + duration),
@@ -130,7 +139,7 @@ function expandRecurringEvent(event, startRange, endRange) {
                     });
                 }
             } else if (rule.freq === 'MONTHLY') {
-                if (current >= startRange) {
+                if (current >= startRange && !isExcluded(current, exdates)) {
                     occurrences.push({
                         start: new Date(current),
                         end: new Date(current.getTime() + duration),
@@ -197,6 +206,15 @@ function parseICS(icsData) {
                 currentEvent.rrule = line;
             } else if (line.startsWith('X-MICROSOFT-CDO-BUSYSTATUS:')) {
                 currentEvent.busyStatus = line.split(':')[1];
+            } else if (line.startsWith('EXDATE')) {
+                // Parse excluded dates for recurring events
+                if (!currentEvent.exdates) currentEvent.exdates = [];
+                const exdateStr = line.includes(':') ? line.split(':')[1] : line;
+                const dates = exdateStr.split(',');
+                for (const d of dates) {
+                    const parsed = parseICSDate(d.trim());
+                    if (parsed) currentEvent.exdates.push(parsed.getTime());
+                }
             }
         }
     }
