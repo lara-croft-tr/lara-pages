@@ -6,13 +6,13 @@
 }
 
 :root {
-    --primary-color: #2d6a4f;
-    --primary-dark: #1b4332;
-    --primary-light: #40916c;
-    --accent-color: #52b788;
-    --dark: #081c15;
-    --light: #d8f3dc;
-    --gray: #74c69d;
+    --primary-color: #2563eb;
+    --primary-dark: #1e40af;
+    --primary-light: #3b82f6;
+    --accent-color: #60a5fa;
+    --dark: #0f172a;
+    --light: #dbeafe;
+    --gray: #93c5fd;
     --white: #ffffff;
     --text-dark: #2d3748;
     --text-light: #718096;
@@ -94,7 +94,7 @@ body {
 .btn-contact:hover {
     background: var(--primary-dark);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(45, 106, 79, 0.3);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
 }
 
 /* Hero Section */
@@ -115,7 +115,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(27, 67, 50, 0.92) 0%, rgba(45, 106, 79, 0.88) 50%, rgba(64, 145, 108, 0.85) 100%);
+    background: linear-gradient(135deg, rgba(30, 64, 175, 0.92) 0%, rgba(37, 99, 235, 0.88) 50%, rgba(59, 130, 246, 0.85) 100%);
     z-index: 0;
 }
 
@@ -235,7 +235,7 @@ section {
 
 .service-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(45, 106, 79, 0.15);
+    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.15);
     border-color: var(--primary-color);
 }
 
@@ -343,7 +343,7 @@ section {
 
 .team-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(45, 106, 79, 0.15);
+    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.15);
 }
 
 .team-avatar {
@@ -542,28 +542,34 @@ section {
 /* Availability Chart */
 .availability-section {
     margin-top: 3rem;
+    background: linear-gradient(135deg, var(--light) 0%, #f8fafc 100%);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(37, 99, 235, 0.1);
 }
 
 .availability-title {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: var(--primary-dark);
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     text-align: center;
+    font-weight: 700;
 }
 
 .availability-subtitle {
     text-align: center;
     color: var(--text-light);
     margin-bottom: 2rem;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 .availability-grid {
     overflow-x: auto;
     background: var(--white);
-    border-radius: 10px;
-    padding: 1rem;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 40px rgba(37, 99, 235, 0.1);
+    border: 1px solid rgba(37, 99, 235, 0.08);
 }
 
 .availability-header {
@@ -584,21 +590,25 @@ section {
 
 .day-header {
     text-align: center;
-    padding: 0.5rem;
-    background: var(--light);
-    border-radius: 8px;
+    padding: 0.75rem 0.5rem;
+    background: linear-gradient(135deg, var(--light) 0%, #f1f5f9 100%);
+    border-radius: 10px;
+    border: 1px solid rgba(37, 99, 235, 0.1);
 }
 
 .day-name {
     font-weight: 700;
     color: var(--primary-color);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .day-date {
-    font-size: 0.75rem;
-    color: var(--text-light);
-    margin-top: 0.2rem;
+    font-size: 0.8rem;
+    color: var(--text-dark);
+    margin-top: 0.3rem;
+    font-weight: 500;
 }
 
 .availability-row {
@@ -609,64 +619,76 @@ section {
 }
 
 .slot {
-    height: 30px;
-    border-radius: 5px;
-    transition: all 0.3s;
+    height: 32px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
 }
 
 .slot.available {
-    background: var(--accent-color);
+    background: linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%);
     cursor: pointer;
+    border-color: rgba(37, 99, 235, 0.2);
 }
 
 .slot.available:hover {
-    background: var(--primary-light);
-    transform: scale(1.05);
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-color) 100%);
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
 }
 
 .slot.busy {
-    background: #e0e0e0;
+    background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+    border-color: rgba(0, 0, 0, 0.05);
 }
 
 .slot.preferred {
-    background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-light) 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(45, 106, 79, 0.15);
+    box-shadow: 0 3px 10px rgba(37, 99, 235, 0.2);
+    border-color: rgba(37, 99, 235, 0.3);
 }
 
 .slot.preferred:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(45, 106, 79, 0.25);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
 }
 
 .slot.lunch {
     background: repeating-linear-gradient(
         45deg,
-        #f5f5f5,
-        #f5f5f5 10px,
-        #e8e8e8 10px,
-        #e8e8e8 20px
+        #f8fafc,
+        #f8fafc 8px,
+        #e2e8f0 8px,
+        #e2e8f0 16px
     );
     cursor: not-allowed;
+    border-color: rgba(0, 0, 0, 0.08);
 }
 
 .availability-legend {
     display: flex;
     justify-content: center;
-    gap: 2rem;
-    margin-top: 1.5rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--gray);
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--light);
 }
 
 .legend-item {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.6rem;
+    background: #f8fafc;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid rgba(37, 99, 235, 0.1);
 }
 
 .legend-item .slot {
-    width: 30px;
+    width: 24px;
+    height: 24px;
     height: 20px;
 }
 
