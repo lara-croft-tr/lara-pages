@@ -374,30 +374,43 @@ function renderAvailabilityChart(availability) {
 
 // Fetch and display availability
 async function loadAvailability() {
+    const container = document.getElementById('availability-chart');
+    if (!container) {
+        console.error('availability-chart container not found!');
+        return;
+    }
+    
     try {
+        console.log('Fetching calendar data...');
         const response = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(CALENDAR_URL)}`);
         const icsData = await response.text();
+        console.log('ICS data received, length:', icsData.length);
         
         // Parse events
         const events = parseICS(icsData);
+        console.log('Parsed events:', events.length);
         
         // Calculate date range
         const startRange = new Date();
         startRange.setHours(0, 0, 0, 0);
         const endRange = new Date(startRange);
         endRange.setDate(endRange.getDate() + DAYS_TO_SHOW);
+        console.log('Date range:', startRange.toDateString(), 'to', endRange.toDateString());
         
         // Expand all events (including recurring)
         const expandedEvents = expandAllEvents(events, startRange, endRange);
+        console.log('Expanded events in range:', expandedEvents.length);
+        expandedEvents.forEach(e => console.log(' -', e.summary, e.start.toLocaleString()));
         
         // Generate and render availability
         const availability = generateAvailability(expandedEvents);
-        renderAvailabilityChart(availability);
+        console.log('Availability days:', availability.length);
         
-        console.log(`Loaded ${events.length} events, expanded to ${expandedEvents.length} occurrences`);
+        renderAvailabilityChart(availability);
+        console.log('Chart rendered');
     } catch (error) {
         console.error('Error loading availability:', error);
-        document.getElementById('availability-chart').innerHTML = 
+        container.innerHTML = 
             '<p class="availability-error">Unable to load availability. Please contact directly.</p>';
     }
 }
