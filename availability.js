@@ -382,8 +382,13 @@ async function loadAvailability() {
     
     try {
         console.log('Fetching calendar data...');
+        container.innerHTML = '<p style="text-align:center;color:#666;">Fetching calendar...</p>';
+        
         const response = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(CALENDAR_URL)}`);
+        if (!response.ok) throw new Error('Fetch failed: ' + response.status);
+        
         const icsData = await response.text();
+        if (!icsData || icsData.length < 100) throw new Error('Invalid ICS data received');
         console.log('ICS data received, length:', icsData.length);
         
         // Parse events
@@ -407,11 +412,18 @@ async function loadAvailability() {
         console.log('Availability days:', availability.length);
         
         renderAvailabilityChart(availability);
+        
+        // Add debug info below chart
+        const debugInfo = document.createElement('p');
+        debugInfo.style.cssText = 'font-size: 11px; color: #999; text-align: center; margin-top: 10px;';
+        debugInfo.textContent = `Loaded ${events.length} events, ${expandedEvents.length} in date range, ${availability.length} days shown`;
+        container.appendChild(debugInfo);
+        
         console.log('Chart rendered');
     } catch (error) {
         console.error('Error loading availability:', error);
         container.innerHTML = 
-            '<p class="availability-error">Unable to load availability. Please contact directly.</p>';
+            '<p class="availability-error">Unable to load availability: ' + error.message + '</p>';
     }
 }
 
